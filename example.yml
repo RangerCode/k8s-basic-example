@@ -2,16 +2,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-deployment
+  name: basic-example-deployment
   labels:
-    app: myapp
+    app: basic-example
     type: front-end
 spec:
   template:
     metadata:
-      name: myapp-pod
+      name: basic-example-pod
       labels:
-        app: myapp
+        app: basic-example
         type: front-end
     spec:
       containers:
@@ -26,13 +26,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapp-service
+  name: basic-example-service
 spec:
   type: NodePort
   ports:
     - targetPort: 80
       port: 80
-      nodePort: 30008
+      nodePort: 30000
   selector:
-    app: myapp
+    app: basic-example
     type: front-end
